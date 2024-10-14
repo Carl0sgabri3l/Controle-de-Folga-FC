@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Folgas FC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e60d0d; /* Fundo vermelho claro */
+        }
+        #logo {
+            display: block;
+            margin: 0 auto; /* Centraliza o logo */
+            max-width: 100%; /* Garante que o logo não exceda a largura da tela */
+            height: auto; /* Mantém a proporção do logo */
+        }
+    </style>
+    <script src="script.js" defer></script> <!-- Link para o script -->
+</head>
+<body onload="checkPassword()">
+    <div class="container mt-5" id="content" style="display: none;">
+        <img id="logo" src="FC.jpg" alt="Logo da Empresa"> <!-- Substitua pelo URL do seu logo -->
+        <h1 class="text-center">Controle de Funcionários e Folgas</h1>
+        <div class="form-group">
+            <input type="text" id="employeeName" class="form-control" placeholder="Nome do Funcionário">
+            <input type="text" id="leaveType" class="form-control mt-2" placeholder="Tipo de Folga (fixa, banco, feriado)">
+            <input type="text" id="leaveDayOfWeek" class="form-control mt-2" placeholder="Dia da Semana (ex: segunda)">
+            <input type="number" id="leaveDay" class="form-control mt-2" placeholder="Dia (se aplicável)">
+            <input type="number" id="leaveMonth" class="form-control mt-2" placeholder="Mês (se aplicável)">
+        </div>
+        
+        <button class="btn btn-primary" onclick="addRecord()">Adicionar Registro</button>
+        
+        <div class="mt-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar Funcionário...">
+            <button class="btn btn-secondary mt-2" onclick="searchEmployee()">Pesquisar</button>
+        </div>
+        
+        <div id="employeeList" class="mt-4">
+            <h2>Registros de Funcionários e Folgas</h2>
+            <ul id="employeeEntries" class="list-group"></ul>
+        </div>
+</body><div id="content" style="display:none;">
+    <button class="btn btn-primary" onclick="toggleEmployees()">Mostrar/Ocultar Funcionários</button>
+    <div id="employeeSection">
+        <ul id="employeeEntries" class="list-group"></ul>
+    </div>
+    <div id="content" style="display:none;">
+        <div id="employeeToggle"></div>
+        <ul id="employeeEntries" class="list-group"></ul>
+    
+        <div id="holidayToggle"></div>
+        <ul id="holidayEntries" class="list-group"></ul>
+    </div>
+    <div id="content">
+        <input type="text" id="searchInput" placeholder="Pesquisar funcionário" oninput="searchEmployee()">
+        <ul id="employeeEntries" class="list-group"></ul>
+    </div>
+</html>
